@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MC-ECII · Explainable Student Stress Risk</title>
+<meta name="description" content="{{ project.short }} — ontology-guided, class-aware multiclass concept induction for explainable student academic stress classification.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234f46e5'/%3E%3Ctext x='32' y='42' font-size='28' font-weight='800' text-anchor='middle' fill='white' font-family='Arial'%3EMC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=2">
+</head>
+<body>
+
+<!-- ambient background -->
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<!-- splash -->
+<div id="splash">
+  <div class="splash-card">
+    <div class="logo-orb">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+        <circle cx="50" cy="50" r="18" fill="url(#lg)"/>
+        <g class="orbit"><circle cx="50" cy="50" r="38" fill="none" stroke="#c7d2fe" stroke-width="2" stroke-dasharray="4 7"/><circle cx="88" cy="50" r="6" fill="#7c3aed"/></g>
+        <g class="orbit o2"><circle cx="50" cy="50" r="30" fill="none" stroke="#bae6fd" stroke-width="2"/><circle cx="50" cy="20" r="5" fill="#06b6d4"/></g>
+      </svg>
+    </div>
+    <h1>MC-ECII <span class="grad">Studio</span></h1>
+    <p id="splashMsg">Starting the engine…</p>
+    <div class="bar"><span id="splashBar"></span></div>
+  </div>
+</div>
+
+<div class="app">
+  <!-- sidebar -->
+  <aside class="side" id="side">
+    <div class="brand">
+      <div class="mark">MC</div>
+      <div><b>MC-ECII</b><small>Explainable stress-risk AI</small></div>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="grp">Explore</div>
+      <a href="#overview" data-page="overview"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg>Overview</a>
+      <a href="#dataset" data-page="dataset"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>Dataset &amp; EDA</a>
+      <div class="grp">Knowledge</div>
+      <a href="#ontology" data-page="ontology"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5"/></svg>Ontology</a>
+      <a href="#coverage" data-page="coverage"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 3 5-7"/></svg>Class Coverage</a>
+      <div class="grp">Models</div>
+      <a href="#ml" data-page="ml"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>ML Benchmark</a>
+      <a href="#compare" data-page="compare"><svg viewBox="0 0 24 24"><path d="M7 4v16M17 4v16M3 8l4-4 4 4M13 16l4 4 4-4"/></svg>ECII vs MC-ECII</a>
+      <a href="#concepts" data-page="concepts"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>Explanations</a>
+      <div class="grp">Try it</div>
+      <a href="#predict" data-page="predict"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>Live Prediction</a>
+      <a href="#explain" data-page="explain"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>Explain AI</a>
+      <a href="#lab" data-page="lab"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 20a1 1 0 0 0 .9 1.5h14.2A1 1 0 0 0 20 20l-6-11V3"/></svg>Tuning Lab</a>
+      <div class="grp">Project</div>
+      <a href="#project" data-page="project"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg>Method &amp; Review</a>
+      <a href="#settings" data-page="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Settings</a>
+    </nav>
+    <div class="side-foot"><b>Non-diagnostic</b>Educational decision support with human oversight.</div>
+  </aside>
+
+  <!-- main -->
+  <div class="main">
+    <header class="top">
+      <button class="burger" id="burger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div><div class="crumb">{{ project.institution }} · {{ project.phase }}</div><h2 id="pageTitle">Overview</h2></div>
+      <div class="sp"></div>
+      <button class="btn sm ai" id="explainBtn" title="Explain what is on this page in simple terms"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg><span class="xlabel">Explain simply</span></button>
+      <span class="chip" id="statusChip"><span class="dot"></span><span id="statusText">Connecting…</span></span>
+      <div class="topbar-progress"><span id="topProg"></span></div>
+    </header>
+
+    <main class="content">
+      <section class="page" id="page-overview"></section>
+      <section class="page" id="page-dataset"></section>
+      <section class="page" id="page-ontology"></section>
+      <section class="page" id="page-coverage"></section>
+      <section class="page" id="page-ml"></section>
+      <section class="page" id="page-compare"></section>
+      <section class="page" id="page-concepts"></section>
+      <section class="page" id="page-predict"></section>
+      <section class="page" id="page-lab"></section>
+      <section class="page" id="page-project"></section>
+      <section class="page" id="page-explain"></section>
+      <section class="page" id="page-settings"></section>
+    </main>
+  </div>
+</div>
+
+<!-- student drawer -->
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<div class="drawer-bg" id="xBg"></div>
+<aside class="drawer" id="xdrawer" aria-hidden="true"></aside>
+<div class="toast" id="toast"></div>
+
+<!-- shared SVG defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+</defs></svg>
+
+<script src="{{ url_for('static', filename='vendor/chart.umd.js') }}"></script>
+<script src="{{ url_for('static', filename='js/core.js') }}?v=2"></script>
+<script src="{{ url_for('static', filename='js/pages_data.js') }}?v=3"></script>
+<script src="{{ url_for('static', filename='js/pages_models.js') }}?v=2"></script>
+<script src="{{ url_for('static', filename='js/explain.js') }}?v=2"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}?v=2"></script>
+</body>
+</html>
