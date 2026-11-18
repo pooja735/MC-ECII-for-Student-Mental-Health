@@ -1,1 +1,0 @@
-# MC-ECII-for-Student-Mental-Health
